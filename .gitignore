@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+data/processed/*
+!data/processed/.gitkeep
+node_modules/
+frontend/dist/
+frontend/node_modules/
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+evaluation/results_*.json
+evaluation/comparison_table.json

@@ -1,0 +1,31 @@
+{
+  "description": "Hand-labeled factual contradictions between two sources on the same concept. Used to validate the contradiction-detection pipeline and to drive Demo 2.",
+  "cases": [
+    {
+      "case_id": "conf-001",
+      "concept": "Password Expiration",
+      "doc_a": "it-security-policy-v2",
+      "value_a": "90 days",
+      "snippet_a": "Passwords must be changed every 90 days.",
+      "doc_b": "it-handbook",
+      "value_b": "180 days",
+      "snippet_b": "Passwords must be changed every 180 days under standard account settings, though employees are welcome to change them more frequently.",
+      "severity": "high",
+      "resolved_doc_key": "it-security-policy-v2",
+      "resolution_reason": "it-security-policy-v2 has authority_level 1 (Official approved policy); it-handbook has authority_level 3 (Official documentation, informational). Security policy takes precedence."
+    },
+    {
+      "case_id": "conf-002",
+      "concept": "Production Database Access Requirements",
+      "doc_a": "it-access-control-policy",
+      "value_a": "Manager approval + access ticket required for all engineers regardless of seniority",
+      "snippet_a": "Access to production databases requires explicit manager approval and a completed access request ticket, regardless of seniority or role.",
+      "doc_b": "eng-production-access-policy",
+      "value_b": "Senior Engineers have standing access without per-instance request",
+      "snippet_b": "Senior Engineers and above are granted standing access to production databases as part of their role, without needing to file a per-instance request, since production debugging is a core part of the senior engineering function.",
+      "severity": "high",
+      "resolved_doc_key": "it-access-control-policy",
+      "resolution_reason": "it-access-control-policy is authority_level 1 (Official approved policy) and explicitly states it takes precedence over department SOPs for production systems; eng-production-access-policy is authority_level 2 (SOP)."
+    }
+  ]
+}

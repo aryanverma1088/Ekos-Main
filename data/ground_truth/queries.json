@@ -1,0 +1,117 @@
+{
+  "description": "Evaluation query set for retrieval experiments (BM25 vs Dense vs Hybrid vs Hybrid+Rerank). relevant_docs lists doc_keys considered relevant; scripts/resolve_ground_truth.py expands these to chunk_ids after ingestion. Where a query concept has a current vs. superseded version, only the current doc is marked relevant unless the query explicitly asks about history/versions.",
+  "queries": [
+    {
+      "query_id": "q01",
+      "query_text": "What is the current remote work policy?",
+      "category": "policy_lookup",
+      "relevant_docs": ["hr-remote-work-policy-v4"]
+    },
+    {
+      "query_id": "q02",
+      "query_text": "How often must employees change their passwords?",
+      "category": "numeric_fact_conflicting",
+      "relevant_docs": ["it-security-policy-v2", "it-handbook"],
+      "notes": "Deliberately conflicting -- both are 'relevant' for retrieval purposes, but the /ask endpoint should surface the conflict rather than pick one silently."
+    },
+    {
+      "query_id": "q03",
+      "query_text": "Who owns the production deployment process?",
+      "category": "ownership",
+      "relevant_docs": ["eng-deployment-policy"]
+    },
+    {
+      "query_id": "q04",
+      "query_text": "What is the company's reimbursement limit for expenses?",
+      "category": "numeric_fact",
+      "relevant_docs": ["finance-expense-policy-v2"]
+    },
+    {
+      "query_id": "q05",
+      "query_text": "How many weeks of parental leave are available?",
+      "category": "numeric_fact",
+      "relevant_docs": ["hr-parental-leave-policy"]
+    },
+    {
+      "query_id": "q06",
+      "query_text": "Who can access production databases?",
+      "category": "policy_lookup_conflicting",
+      "relevant_docs": ["it-access-control-policy", "eng-production-access-policy"],
+      "notes": "Deliberately conflicting -- see conf-002 in contradictions.json."
+    },
+    {
+      "query_id": "q07",
+      "query_text": "What is the incident escalation process?",
+      "category": "process_lookup",
+      "relevant_docs": ["eng-incident-response-sop"]
+    },
+    {
+      "query_id": "q08",
+      "query_text": "How many days of annual leave do employees accrue?",
+      "category": "numeric_fact",
+      "relevant_docs": ["hr-leave-policy"]
+    },
+    {
+      "query_id": "q09",
+      "query_text": "What are the requirements for accessing the company VPN?",
+      "category": "process_lookup",
+      "relevant_docs": ["it-security-policy-v2", "it-handbook"]
+    },
+    {
+      "query_id": "q10",
+      "query_text": "What is the approval threshold for purchases without department head sign-off?",
+      "category": "numeric_fact",
+      "relevant_docs": ["finance-procurement-policy"]
+    },
+    {
+      "query_id": "q11",
+      "query_text": "What counts as a customer for revenue reporting?",
+      "category": "definition_conflicting",
+      "relevant_docs": ["finance-glossary", "project-atlas-charter"],
+      "notes": "Deliberately conflicting definitions -- see def-001 in definitions.json."
+    },
+    {
+      "query_id": "q12",
+      "query_text": "What happens if a device is lost or stolen?",
+      "category": "process_lookup",
+      "relevant_docs": ["it-device-policy"]
+    },
+    {
+      "query_id": "q13",
+      "query_text": "How is a SEV-1 incident escalated?",
+      "category": "process_lookup",
+      "relevant_docs": ["eng-incident-response-sop"]
+    },
+    {
+      "query_id": "q14",
+      "query_text": "What was the remote work allowance before the current policy?",
+      "category": "historical_lookup",
+      "relevant_docs": ["hr-remote-work-policy-v3"],
+      "notes": "Explicitly asks about the superseded version -- tests that outdated docs remain retrievable when asked for directly, just flagged as non-authoritative."
+    },
+    {
+      "query_id": "q15",
+      "query_text": "What is required before a new vendor contract can be signed?",
+      "category": "process_lookup",
+      "relevant_docs": ["finance-procurement-policy"]
+    },
+    {
+      "query_id": "q16",
+      "query_text": "How should a security incident involving customer data be reported and contained?",
+      "category": "process_lookup",
+      "relevant_docs": ["it-incident-response-policy"]
+    },
+    {
+      "query_id": "q17",
+      "query_text": "How large should a pull request be before it needs to be split up?",
+      "category": "numeric_fact",
+      "relevant_docs": ["eng-code-review-guidelines"]
+    },
+    {
+      "query_id": "q18",
+      "query_text": "How often are employee performance reviews conducted?",
+      "category": "numeric_fact",
+      "relevant_docs": ["hr-performance-policy"]
+    }
+  ]
+}

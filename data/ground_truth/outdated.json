@@ -1,0 +1,19 @@
+{
+  "description": "Known supersession chains, derived purely from document metadata (status + supersedes field). This detector should achieve ~100% precision/recall since it is metadata-driven rather than similarity-driven.",
+  "cases": [
+    {
+      "case_id": "out-001",
+      "concept": "Remote Work Allowance",
+      "outdated_doc": "hr-remote-work-policy-v3",
+      "current_doc": "hr-remote-work-policy-v4",
+      "changed_fact": "Remote work allowance increased from 2 days/week (v3) to 3 days/week (v4)"
+    },
+    {
+      "case_id": "out-002",
+      "concept": "Expense Reimbursement Limit",
+      "outdated_doc": "finance-expense-policy-v1",
+      "current_doc": "finance-expense-policy-v2",
+      "changed_fact": "Reimbursement limit without approval increased from $150/month (v1) to $250/month (v2)"
+    }
+  ]
+}

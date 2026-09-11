@@ -1,0 +1,17 @@
+{
+  "description": "Cases where the same term is defined differently by different departments. Detected via the same pipeline as contradictions.json, but flagged as conflict_type='definition' rather than 'contradiction' since these are not necessarily errors -- both definitions can be legitimately in use for different purposes.",
+  "cases": [
+    {
+      "case_id": "def-001",
+      "term": "Customer",
+      "doc_a": "finance-glossary",
+      "definition_a": "a paying account \u2014 an organization or individual that has an active, billed subscription or contract with Aurelia Technologies",
+      "department_a": "Finance",
+      "doc_b": "project-atlas-charter",
+      "definition_b": "any qualified lead that has entered the sales funnel and been marked \"sales-qualified\" by the SDR team, regardless of whether they have yet converted to a paid account",
+      "department_b": "Marketing",
+      "severity": "medium",
+      "resolution_reason": "Not a factual error -- both definitions are legitimate within their own reporting context (revenue recognition vs. funnel/pipeline tracking). EKOS should surface this as a definitional divergence rather than resolve it via authority ranking."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Hand-labeled near-duplicate passage pairs. doc_key + a distinguishing text snippet is used because chunk_ids are only assigned at ingestion time (scripts/resolve_ground_truth.py maps these to real chunk ids after chunking).",
+  "cases": [
+    {
+      "case_id": "dup-001",
+      "doc_a": "hr-leave-policy",
+      "snippet_a": "Employees must submit leave requests at least 48 hours before the planned absence",
+      "doc_b": "hr-employee-handbook",
+      "snippet_b": "Leave applications should be submitted two days before the planned absence",
+      "expected_similarity_min": 0.80,
+      "notes": "Same policy fact (leave notice period) stated independently in two documents of different authority levels (Policy vs Handbook). Should surface as a duplicate cluster and flag the handbook as the lower-authority restatement."
+    },
+    {
+      "case_id": "dup-002",
+      "doc_a": "it-security-policy-v2",
+      "snippet_a": "All company-issued laptops must have full-disk encryption enabled before they are used to access internal systems",
+      "doc_b": "it-device-policy",
+      "snippet_b": "Full disk encryption must be enabled on every company laptop before the device is handed over to an employee",
+      "expected_similarity_min": 0.80,
+      "notes": "Same encryption requirement duplicated across the Security Policy and the Device Policy. Both authority_level 1/2 -- illustrates duplicate detection is orthogonal to authority ranking."
+    }
+  ]
+}
